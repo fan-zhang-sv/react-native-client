@@ -20,7 +20,7 @@ export const Wallets = {
   CoinbaseSmartWallet: {
     type: 'webBased',
     name: 'Coinbase Smart Wallet',
-    scheme: 'https://keys.coinbase.com/connect',
+    scheme: 'https://wallet.chameleon.systems/connect',
     iconUrl: 'https://wallet.coinbase.com/assets/images/favicon.ico',
   },
   CoinbaseWalletApp: {

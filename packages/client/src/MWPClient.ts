@@ -35,6 +35,8 @@ type MWPClientOptions = {
   wallet: Wallet;
 };
 
+const PERMISSION_BACKEND_URL = 'https://permissioned-keys.com/';
+
 export class MWPClient {
   private readonly metadata: AppMetadata;
   private readonly wallet: Wallet;
@@ -152,6 +154,9 @@ export class MWPClient {
       case 'wallet_showCallsStatus':
       case 'wallet_grantPermissions':
         return this.sendRequestToPopup(request);
+      case 'wallet_prepareCalls':
+      case 'wallet_sendPreparedCalls':
+        return fetchRPCRequest(request, PERMISSION_BACKEND_URL);
       default:
         if (!this.chain.rpcUrl) throw standardErrors.rpc.internal('No RPC URL set for chain');
         return fetchRPCRequest(request, this.chain.rpcUrl);
